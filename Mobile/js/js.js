@@ -32,15 +32,18 @@ function start() {
 		S: 83,
 		D: 68
 	}
+
+	//Touch
+
 $("#jogador")
-	.hammer({ drag_max_touches;0})
-	.on("touch drag",function(ev)){
+	.hammer({ drag_max_touches:0})
+	.on("touch drag",function(ev){
 		var touches = ev.gesture.touches;
 
 		ev.gesture.preventDefault();
 
-		for (var t = 0, len = touches.length; - t<len; t++) {
-			var target = $ (touches[t].target);
+		for (var t = 0, len = touches.length; t<len; t++) {
+			var target = $(touches[t].target);
 			target.css({
 				zIndex:1337,
 				top: touches[t].pageY-50
@@ -54,7 +57,7 @@ $("#jogador")
 				$("#jogador").css("top",434);
 			}
 		}
-	}
+	});
 	//Game loop
 	jogo.timer = setInterval(loop, 30);
 	function loop() {
